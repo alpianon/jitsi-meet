@@ -11,6 +11,7 @@ import { DialInSummary } from '../../invite';
 import { _TNS } from '../constants';
 import { generateDeepLinkingURL } from '../functions';
 import { renderPromotionalFooter } from '../renderPromotionalFooter';
+import { renderPrivacyDiv } from '../../privacy';
 
 declare var interfaceConfig: Object;
 
@@ -146,6 +147,7 @@ class DeepLinkingMobilePage extends Component<Props> {
                         { t(`${_TNS}.openApp`) }
                         {/* </button> */}
                     </a>
+                    { renderPrivacyDiv() }
                     { renderPromotionalFooter() }
                     <DialInSummary
                         className = 'deep-linking-dial-in'

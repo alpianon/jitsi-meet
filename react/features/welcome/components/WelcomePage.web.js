@@ -9,6 +9,7 @@ import { isMobileBrowser } from '../../base/environment/utils';
 import { CalendarList } from '../../calendar-sync';
 import { RecentList } from '../../recent-list';
 import { SettingsButton, SETTINGS_TABS } from '../../settings';
+import { renderPrivacyDiv } from '../../privacy';
 
 import { AbstractWelcomePage, _mapStateToProps } from './AbstractWelcomePage';
 import Tabs from './Tabs';
@@ -192,6 +193,7 @@ class WelcomePage extends AbstractWelcomePage {
                                 { app: APP_NAME }) }
                         </p>
                     </div>
+                    { renderPrivacyDiv() }
                     <div id = 'enter_room'>
                         <div className = 'enter-room-input-container'>
                             <div className = 'enter-room-title'>

@@ -475,6 +475,12 @@ var config = {
     // If set to true all muting operations of remote participants will be disabled.
     // disableRemoteMute: true,
 
+    // privacyPage: {
+    //     url: 'privacy.html',
+    //     name: 'Privacy Policy'
+    // },
+
+
     // List of undocumented settings used in jitsi-meet
     /**
      _immediateReloadThreshold
