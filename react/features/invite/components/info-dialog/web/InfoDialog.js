@@ -1,4 +1,5 @@
 // @flow
+/* global config */
 
 import React, { Component } from 'react';
 import type { Dispatch } from 'redux';
@@ -13,6 +14,7 @@ import {
     isLocalParticipantModerator,
     getLocalParticipant
 } from '../../../../base/participants';
+import { renderPrivacyDiv, getPrivacyTxt } from '../../../../privacy';
 
 import {
     _decodeRoomURI,
@@ -268,6 +270,7 @@ class InfoDialog extends Component<Props, State> {
                             password = { this.props._password }
                             passwordNumberOfDigits = { this.props._passwordNumberOfDigits } />
                     </div>
+                    { renderPrivacyDiv() }
                     <div className = 'info-dialog-action-links'>
                         <div className = 'info-dialog-action-link'>
                             <a
@@ -326,6 +329,8 @@ class InfoDialog extends Component<Props, State> {
         invite += t('info.inviteURLSecondPart', {
             url: _inviteURL
         });
+
+        invite += getPrivacyTxt();
 
         if (liveStreamViewURL) {
             const liveStream = t('info.inviteLiveStream', {
