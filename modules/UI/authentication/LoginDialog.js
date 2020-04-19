@@ -4,6 +4,8 @@ import { toJid } from '../../../react/features/base/connection';
 import {
     JitsiConnectionErrors
 } from '../../../react/features/base/lib-jitsi-meet';
+import { renderPrivacyDiv } from '../../../react/features/privacy';
+import { renderToString } from 'react-dom/server';
 
 /**
  * Build html for "password required" dialog.
@@ -228,6 +230,9 @@ export default {
             '[html]dialog.WaitForHostMsg',
             { room }
         );
+        const privacyDiv = (
+            renderPrivacyDiv() ? renderToString(renderPrivacyDiv()) : ''
+        );
         const buttonTxt = APP.translation.generateTranslationHTML(
             'dialog.IamHost'
         );
@@ -238,7 +243,7 @@ export default {
 
         return APP.UI.messageHandler.openDialog(
             'dialog.WaitingForHost',
-            msg,
+            msg+privacyDiv,
             true,
             buttons,
             (e, submitValue) => {
