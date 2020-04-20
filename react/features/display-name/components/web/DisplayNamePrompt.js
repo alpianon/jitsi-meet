@@ -7,6 +7,8 @@ import { Dialog } from '../../../base/dialog';
 import { translate } from '../../../base/i18n';
 import { connect } from '../../../base/redux';
 
+import { renderPrivacyDiv } from '../../../privacy';
+
 import AbstractDisplayNamePrompt, {
     type Props
 } from '../AbstractDisplayNamePrompt';
@@ -60,6 +62,7 @@ class DisplayNamePrompt extends AbstractDisplayNamePrompt<State> {
                 onSubmit = { this._onSubmit }
                 titleKey = 'dialog.displayNameRequired'
                 width = 'small'>
+                { renderPrivacyDiv() }
                 <TextField
                     autoFocus = { true }
                     compact = { true }
