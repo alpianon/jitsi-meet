@@ -11,7 +11,7 @@ const resolveUrl = require('resolve-url');
 export function renderPrivacyLink() {
     if (config && config.privacyPage && config.privacyPage.url && config.privacyPage.name) {
         return (
-            <a href = { config.privacyPage.url }><b>{ config.privacyPage.name }</b></a>
+            <a href = { config.privacyPage.url } target="_blank"><b>{ config.privacyPage.name }</b></a>
         );
     }
 }
